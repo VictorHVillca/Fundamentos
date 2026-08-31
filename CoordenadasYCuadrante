@@ -35,10 +35,8 @@ int main()
             cout<<"Esta en el cuarto cuadrante.";
             return 0;
         }
-        else {
+        else 
             cout<<"Esta en el segundo cuadrante.";
-            return 0;
-        }
     }
     return 0;
 }
