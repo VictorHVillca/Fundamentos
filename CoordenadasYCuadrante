@@ -2,8 +2,6 @@
 using namespace std;
 int main()
 {
-    //Escriba un programa que tome como entrada las coordenadas
-    //de un punto en el plano cartesiano e indique al usuario en qué cuadrante se encuentra el punto.
     float x, y;
     char separador;
     cout<<"Escribe las coordenadas en el formato x,y: ";
@@ -23,18 +21,22 @@ int main()
         
     if ((x*y)>0){
         if (x>0){
-            cout<<"Primer cuadrante.";
+            cout<<"Esta en el primer cuadrante.";
+            return 0;
         }
         else {
-            cout<<"Tercer cuadrante.";
+            cout<<"Esta en el tercer cuadrante.";
+            return 0;
         }
     }
     else {
         if (x>0){
-            cout<<"Cuarto cuadrante.";
+            cout<<"Esta en el cuarto cuadrante.";
+            return 0;
         }
         else {
-            cout<<"Segundo cuadrante.";
+            cout<<"Esta en el segundo cuadrante.";
+            return 0;
         }
     }
     return 0;
