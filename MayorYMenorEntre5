@@ -1,0 +1,40 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int a, b, c, d, e;
+    int mayor, menor;
+    cout<<"Escribe el primer numero: ";
+    cin>>a;
+    cout<<"Escribe el segundo numero: ";
+    cin>>b;
+    cout<<"Escribe el terer numero: ";
+    cin>>c;
+    cout<<"Escribe el cuarto numero: ";
+    cin>>d;
+    cout<<"Escribe el quinto numero: ";
+    cin>>e;
+    mayor = a;
+    menor = a;
+
+    if (mayor<b)
+    mayor = b;
+    if (mayor<c)
+    mayor = c;
+    if (mayor<d)
+    mayor = d;
+    if (mayor<e)
+    mayor = e;
+    
+    if (menor>b)
+    menor = b;
+    if (menor>c)
+    menor = c;
+    if (menor>d)
+    menor = d;
+    if (menor>e)
+    menor = e;
+    cout<<"El mayor es: "<<mayor<<endl;
+    cout<<"El menor es: "<<menor;
+    return 0;
+}
