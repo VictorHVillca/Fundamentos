@@ -3,9 +3,9 @@ using namespace std;
 int main()
 {
     float x, y;
-    cout<<"Escribe la coordenadas x: ";
+    cout<<"Escribe la coordenada x: ";
     cin>>x;
-    cout<<"Escribe la coordenadas y: ";
+    cout<<"Escribe la coordenada y: ";
     cin>>y;
     
     if (x==0&&y==0) {
