@@ -3,9 +3,10 @@ using namespace std;
 int main()
 {
     float x, y;
-    char separador;
-    cout<<"Escribe las coordenadas en el formato x,y: ";
-    cin>>x>>separador>>y;
+    cout<<"Escribe la coordenadas x: ";
+    cin>>x;
+    cout<<"Escribe la coordenadas y: ";
+    cin>>y;
     
     if (x==0&&y==0) {
         cout<<"Esta en el origen.";
