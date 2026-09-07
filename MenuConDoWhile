@@ -1,69 +1,72 @@
 #include <iostream>
 using namespace std;
 
-int main(){
-    int opcion, cantidad, cham = 0, cqueso = 0, cpapas = 0, csodas = 0;
-    float pham = 0, pqueso = 0, ppapas = 0, psodas = 0;
-    float parcial = 0, total = 0;
-    cout<<"MENU "<<endl;
-    cout<<"1. Hamburguesa (3bs)"<<endl;
-    cout<<"2. Hamburguesa con queso (5bs)"<<endl;
-    cout<<"3. Papas fritas (2bs)"<<endl;
-    cout<<"4. Soda (2.5bs)"<<endl;
-    cout<<"0. Salir"<<endl;
-    do {
-    cout<<"Indica la opcion deseada: ";
-    cin>>opcion;
-    if (opcion == 0) {
-        cout<<"Has salido del menu."<<endl;
-    }
-    else {
-    if (opcion<0||opcion>4)
-        cout<<"La opcion digitada es invalida."<<endl;
-    else {
-        cout<<"Indique la cantidad deseada: ";
-        cin>>cantidad;
-        
-        if (cantidad<0) {
-            cout<<"La cantidad ingresada es invalida."<<endl;
-            return 0;}
-        
-        if (opcion == 1 )
-            cham = cantidad + cham;
-        else {
-            if (opcion == 2 )
-                cqueso = cantidad + cqueso;
-            else {
-                if (opcion == 3 )
-                cpapas = cantidad + cpapas;
-                else 
-                csodas = cantidad + csodas; 
-            }
-        }
-        
-        switch (opcion) {
-            case (1): 
-            pham = 3*cantidad + pham;;
-            break;
-            case (2): 
-            pqueso = 5*cantidad + pqueso;
-            break;
-            case (3): 
-            ppapas = 2*cantidad + ppapas;
-            break;
-            case (4): 
-            psodas = 2.5*cantidad + psodas;
-            break;
-            }
-        }
-    }
-    }while (opcion != 0);
-    cout<<"	ITEM					CANTIDAD 		TOTAL PARCIAL"<<endl;
-    cout<<"	Hamburguesas  (3Bs)				"<<cham<<"						"<<pham<<endl;
-    cout<<"	Hamburguesas  con queso ( 5Bs)			"<<cqueso<<" 	 					"<<pqueso<<endl;
-    cout<<"	Papas fritas ( 2Bs)				"<<cpapas<<"						"<<ppapas<<endl;
-    cout<<"	Soda	(2.5Bs)					"<<csodas<<"						"<<psodas<<endl;
-    cout<<"T O T A L					        "<<cham+cqueso+cpapas+csodas<<"						";
-    cout<<pham+pqueso+ppapas+psodas<<endl;
-    return 0;
-    }
+int main() {
+	int opcion, cantidad, cham = 0, cqueso = 0, cpapas = 0, csodas = 0;
+	float pham = 0, pqueso = 0, ppapas = 0, psodas = 0;
+	float parcial = 0, total = 0;
+	cout<<"MENU "<<endl;
+	cout<<"1. Hamburguesa (3bs)"<<endl;
+	cout<<"2. Hamburguesa con queso (5bs)"<<endl;
+	cout<<"3. Papas fritas (2bs)"<<endl;
+	cout<<"4. Soda (2.5bs)"<<endl;
+	cout<<"0. Salir"<<endl;
+	do {
+		cout<<"Indica la opcion deseada: ";
+		cin>>opcion;
+		if (opcion == 0) {
+			cout<<"Has salido del menu."<<endl;
+		}
+		else {
+			if (opcion<0||opcion>4)
+				cout<<"La opcion digitada es invalida."<<endl;
+			else {
+				cout<<"Indique la cantidad deseada: ";
+				cin>>cantidad;
+
+				if (cantidad<0) {
+					cout<<"La cantidad ingresada es invalida."<<endl;
+					return 0;
+				}
+
+				if (opcion == 1 )
+					cham = cantidad + cham;
+				else {
+					if (opcion == 2 )
+						cqueso = cantidad + cqueso;
+					else {
+						if (opcion == 3 )
+							cpapas = cantidad + cpapas;
+						else
+							csodas = cantidad + csodas;
+					}
+				}
+
+				switch (opcion) {
+				case (1):
+					pham = 3*cantidad + pham;;
+					break;
+				case (2):
+					pqueso = 5*cantidad + pqueso;
+					break;
+				case (3):
+					ppapas = 2*cantidad + ppapas;
+					break;
+				case (4):
+					psodas = 2.5*cantidad + psodas;
+					break;
+				}
+			}
+		}
+	} while (opcion != 0);
+	if (opcion != 0) {
+		cout<<"	ITEM					CANTIDAD 		TOTAL PARCIAL"<<endl;
+		cout<<"	Hamburguesas  (3Bs)				"<<cham<<"						"<<pham<<endl;
+		cout<<"	Hamburguesas  con queso ( 5Bs)			"<<cqueso<<" 	 					"<<pqueso<<endl;
+		cout<<"	Papas fritas ( 2Bs)				"<<cpapas<<"						"<<ppapas<<endl;
+		cout<<"	Soda	(2.5Bs)					"<<csodas<<"						"<<psodas<<endl;
+		cout<<"T O T A L					        "<<cham+cqueso+cpapas+csodas<<"						";
+		cout<<pham+pqueso+ppapas+psodas<<endl;
+	}
+	return 0;
+}
