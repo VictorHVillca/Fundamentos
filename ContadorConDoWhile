@@ -1,0 +1,14 @@
+#include <iostream>
+using namespace std;
+int main()
+{
+    int contador, veces;
+    cout<<"Ingrese la cantidad de veces que quiere que se repita el programa: ";
+    cin>>veces;
+    contador = 0;
+    do {
+        contador = contador + 1;
+    } while (contador<veces);
+    cout<<"El valor del contador es: "<<contador;
+    return 0;
+}
