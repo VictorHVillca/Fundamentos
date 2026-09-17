@@ -3,7 +3,8 @@ using namespace std;
 
 int main()
 {
-	int menor, suma, i = 1, mayor, n, respuesta;
+	int menor, i = 1, mayor, n, respuesta;
+	float suma;
 	cout<<"Introduzca su numero: ";
 	cin>>n;
 
