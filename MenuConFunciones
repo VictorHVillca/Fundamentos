@@ -1,0 +1,81 @@
+//Autor: Victor Hugo Villca Roca. Fecha: 5 de octubre de 2026
+#include <iostream>
+using namespace std;
+
+float CalcularCubo(float l);
+int CalcularMenor(int a, int b);
+int Signo(float n);
+
+int main()
+{
+    int opcion;
+    float a = 0;
+    int b = 0, c = 0;
+    do
+    {
+        cout << "Menu de funciones:\n";
+        cout << "0. Salir del programa\n";
+        cout << "1. Calcular el cubo de un numero\n";
+        cout << "2. Calcular el menor entre dos numeros\n";
+        cout << "3. Devolver el signo en 1, -1 o 0 de un numero\n";
+        
+        cout << "\nQue opcion deseas? ";
+        cin >> opcion;
+        switch (opcion)
+        {
+        case 0:
+            cout << "Ha salido del programa. " << endl;
+            break;
+        case 1: 
+            cout << "Ingresa tu numero: ";
+            cin >> a;
+            cout << "El cubo del lado es: " << CalcularCubo(a) << endl;
+            a = 0;
+            break;
+        case 2:
+            cout << "Ingresa el primer numero: ";
+            cin >> b;
+            cout << "Ingresa el segundo numero: ";
+            cin >> c;
+            cout << "El menor es: " << CalcularMenor(b, c) << endl;
+            b = 0; 
+            c = 0;
+            break;
+        case 3: 
+            cout << "Ingresa tu numero: ";
+            cin >> a;
+            cout << "El signo de tu numero (1 = +, -1 = -, 0 = 0) es: "<<Signo(a) << endl;
+            a = 0;
+            break;
+        default:
+            cout << "Ingreso una opcion invalida." << endl;
+        }
+        system("pause");
+        system("cls");
+    } while (opcion != 0);
+    return 0;
+}
+
+float CalcularCubo(float l)
+{
+    return l * l * l;
+}
+
+int CalcularMenor(int a, int b)
+{
+    if (a < b)
+        return a;
+    else
+        return b;
+}
+
+int Signo(float n)
+{
+    if (n < 0)
+        return -1;
+    else
+        if (n > 0)
+            return 1;
+        else
+            return 0;
+}
