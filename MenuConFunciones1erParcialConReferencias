@@ -1,0 +1,113 @@
+// Autor: Victor Hugo Villca Roca. Fecha: 12 de octubre de 2026
+#include <iostream>
+using namespace std;
+
+void menu();
+void primerapregunta(int nota, int edad);
+int precio(float peso);
+float totalapagar(int cantidad, float preciounitario, float& preciodescontado);
+
+int main()
+{
+    int opcion=0, edad=0, nota=0, cantidad=0;
+    float peso=0, preciounitario=0, preciodescontado=0;
+    do
+    {
+        menu();
+        cin >> opcion;
+        switch (opcion)
+        {
+        case 1: 
+            cout << "Ingresa tu edad: ";
+            cin >> edad;
+            cout << "Ingresa tu nota: ";
+            cin >> nota;
+            if (edad > 0 && nota >= 0)
+                primerapregunta(nota, edad);
+            else
+                cout << "La edad o nota son invalidas.";
+            break;
+        case 2: 
+            cout << "Ingrese el peso de su envio: ";
+            cin >> peso;
+            if (peso > 0)
+                cout << "El costo de envio sera: " << precio(peso) << endl;
+            else
+                cout << "Su peso es invalido.";
+            break;
+        case 3: 
+            int cantidad;
+            float preciounitario;
+            cout << "Ingrese la cantidad de camisas: ";
+            cin >> cantidad;
+            cout << "Ingrese el precio unitario de cada camisa: ";
+            cin >> preciounitario;
+            if (cantidad > 0 && preciounitario > 0)
+            {
+                cout << "El precio total de su compra es: " << totalapagar(cantidad, preciounitario, preciodescontado) << endl;
+                cout << "El precio descontado es: " << preciodescontado << endl;
+            }
+            else
+                cout << "El precio o la cantidad ingresada son invalidas.";
+            break;
+        default:
+            cout << "\nIngreso una opcion invalida.\n";
+            break;
+        }
+        system("pause");    
+        system("cls");
+    } while (opcion != 0);
+    return 0;
+}
+
+void menu()
+{
+    cout << "Menu de funciones: \n";
+    cout << "1. Muestra mayoria de edad y aprobacion\n";
+    cout << "2. Muestra costo de envio de paquete segun peso\n";
+    cout << "3. Muestra precio final de compra de camisas con descuento\n";
+    cout << "0. Salir\n";
+    cout << "Que opcion desea elegir?: ";
+}
+void primerapregunta(int nota, int edad)
+{
+    if (edad >= 18)
+    {
+        if (nota >= 70)
+            cout << "APROBADO - MAYOR DE EDAD\n";
+        else
+            cout << "REPROBADO - MAYOR DE EDAD\n";
+    }
+    else
+    {
+        if (nota >= 60)
+            cout << "APROBADO - MENOR DE EDAD\n";
+        else
+            cout << "REPROBADO - MENOR DE EDAD\n";
+    }
+}
+int precio(float peso)
+{
+    if (peso <= 2)
+        return 15;
+    else
+        if (peso > 2 && peso <= 5)
+            return 25;
+        else
+            if (peso > 5 && peso <= 10)
+                return 45;
+            else
+                return 60;
+}
+float totalapagar(int cantidad, float preciounitario, float &preciodescontado)
+{
+    float total;
+    double descuento;
+    if (cantidad >= 3)
+        descuento = 0.2;
+    else
+        descuento = 0.1;
+    total = cantidad * preciounitario - cantidad * preciounitario * descuento;
+    preciodescontado = cantidad * preciounitario * descuento;
+    return total;
+}
