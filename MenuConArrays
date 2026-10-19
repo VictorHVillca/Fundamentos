@@ -1,0 +1,87 @@
+#include <iostream>
+#define MAX 100
+using namespace std;
+void cargar(int v1[], int tamanio1);
+void mostrar(int v1[], int tamanio1);
+void burbuja(int v1[], int tamanio1);
+int main()
+{
+	int opcion, T, tamanio1 = 0, v1[MAX], V[MAX];
+	do
+	{
+		cout << "Menu de funciones: \n";
+		cout << "1. Cargar\n";
+		cout << "2. Mostrar\n";
+		cout << "3. Clasificar\n";
+		cout << "0. Salir\n";
+		cout << "Que opcion desea? ";
+		cin >> opcion;
+		switch (opcion)
+		{
+		case 1:
+			do {
+				cout << "Ingresar el tamanio del vector:";
+				cin >> tamanio1;
+			} while ((tamanio1 <= 0) || (tamanio1 > MAX));
+			cargar(v1, tamanio1);
+			break;
+		case 2:
+			if (tamanio1 == 0)
+			{
+				cout << "Debe correr el paso 1.";
+			} else
+				mostrar(v1, tamanio1);
+			break;
+		case 3:
+			if (tamanio1 == 0)
+			{
+				cout << "Debe correr el paso 1.";
+				break;
+			} else
+				burbuja(v1, tamanio1);
+			break;
+		case 0:
+			cout << "Ha salido del menu.";
+			break;
+		default:
+			cout << "Digite una opcion entre 0 a 3.";
+			break;
+		}
+		system("pause");
+		system("cls");
+	} while (opcion != 0);
+	return 0;
+}
+
+void cargar(int v1[], int tamanio1)
+{
+	for (int i = 0; i < tamanio1; i++)
+	{
+		cout << "Vector[" << i << "] = ";
+		cin >> v1[i];
+	}
+}
+
+void mostrar(int v1[], int tamanio1)
+{
+	for (int i = 0; i < tamanio1; i++)
+	{
+		cout << "Vector[" << i << "] = ";
+		cout << v1[i]<<endl;
+	}
+}  
+
+void burbuja(int v1[], int tamanio1)
+{
+	int acumulador = 0;
+	for (int i = 0; i < tamanio1 - 1; i++)
+	{
+		for (int j = i + 1; j < tamanio1; j++)
+			if (v1[i] > v1[j])
+			{
+				acumulador = v1[j];
+				v1[j] = v1[i];
+				v1[i] = acumulador;
+			}
+	}
+}
