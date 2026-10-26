@@ -1,0 +1,75 @@
+#include <iostream>
+#include <string>
+using namespace std;
+void introducir(string& nombre, int& horas, int& pago, int& tarde, int& porcentaje);
+int salariobruto(int horas, int pago);
+float penalizacionaplicada(int tarde, int bruto);
+float bonos(int porcentaje, int bruto);
+float salarioneto(int bruto, float bono, float penalizacion);
+
+int main()
+{
+	string nombre;
+	int horas, pago, tarde, porcentaje, bruto;
+	float penalizacion, bono, neto;
+	introducir(nombre, horas, pago, tarde, porcentaje);
+	bruto = salariobruto(horas, pago);
+	penalizacion = penalizacionaplicada(tarde, bruto);
+	bono = bonos(porcentaje, bruto);
+	neto = salarioneto(bruto, bono, penalizacion);
+	cout << "\n";
+	cout << "El empleado " << nombre<<endl;
+	cout << "Tiene un salario bruto de: " << bruto << "Bs"<<endl;
+	cout << "Recibio una penalizacion de: " << penalizacion << "Bs" << endl;
+	cout << "Recibio un bono de: " << bono << "Bs" << endl;
+	cout << "Su salario neto final es: " << neto << "Bs" << endl;
+	return 0;
+}
+
+void introducir(string& nombre, int& horas, int& pago, int& tarde, int& porcentaje)
+{
+	cout << "Introduce el nombre del empleado: ";
+	cin >> nombre;
+
+	do {
+		cout << "Introduce la cantidad de horas trabajadas en el mes (mayor a 0): ";
+		cin >> horas;
+	} while (horas <= 0);
+	do {
+		cout << "Introduce el pago por hora (mayor a 0): ";
+		cin >> pago;
+	} while (pago <= 0);
+	do {
+		cout << "Introduce el numero de dias que llego tade durante el mes (mayor o igual a 0): ";
+		cin >> tarde;
+	} while (tarde < 0);
+	do {
+		cout << "Introduce el porcentaje de bonificacion aplicable (mayor o igual a 0, en %): ";
+		cin >> porcentaje;
+	} while (porcentaje < 0);
+}
+
+int salariobruto(int horas, int pago)
+{
+	return horas * pago;
+}
+
+float penalizacionaplicada(int tarde, int bruto)
+{
+	float penalizacion = 0;
+	if (tarde > 3)
+		penalizacion = bruto * 0.05;
+	return penalizacion;
+}
+
+float bonos(int porcentaje, int bruto)
+{
+	float bono = 0;
+	bono = bruto * porcentaje / 100;
+	return bono;
+}
+
+float salarioneto(int bruto, float bono, float penalizacion)
+{
+	return bruto + bono - penalizacion;
+}
