@@ -1,0 +1,133 @@
+#include <iostream>
+#include <string>
+using namespace std;
+
+void introducir(string& nombre, int& horas, int& pago, int& tarde, int& porcentaje);
+int salariobruto(int horas, int pago);
+float penalizacionaplicada(int tarde, int bruto);
+float bonos(int porcentaje, int bruto);
+float salarioneto(int bruto, float bono, float penalizacion);
+void cargar(int vector[], int tamanio);
+void mostrar(int vector[], int tamanio);
+int main()
+{
+	string nombre;
+	int horas, pago, tarde, porcentaje, bruto, opcion;
+	float penalizacion, bono, neto;
+	const int MAX = 100;
+	int vector[MAX], tamanio;
+	bool comprobante = false;
+	do {
+		cout << "---Menu---\n";
+		cout << "1. Cargar un vector\n";
+		cout << "2. Mostrar el vector cargado\n";
+		cout << "3. Ejercicio 2 del 2do parcial\n";
+		cout << "\nIntroduzca su opcion (0-3): ";
+		cin >> opcion;
+
+		switch (opcion)
+		{
+		case 1: 
+			cout << "Ingrese el tamanio de su vector: ";
+			cin >> tamanio;
+			cargar(vector, tamanio);
+			comprobante = true; //se hace true cuando el case 1 se corre al menos una vez
+			break;
+		case 2:
+			if (comprobante)
+			{
+				mostrar(vector, tamanio);
+			}
+			else
+				cout << "Debe realizar al menos una vez la opcion 1. \n";
+			break;
+		case 3: 
+			introducir(nombre, horas, pago, tarde, porcentaje);
+			bruto = salariobruto(horas, pago);
+			penalizacion = penalizacionaplicada(tarde, bruto);
+			bono = bonos(porcentaje, bruto);
+			neto = salarioneto(bruto, bono, penalizacion);
+			cout << "\n";
+			cout << "El empleado " << nombre << endl;
+			cout << "Tiene un salario bruto de: " << bruto << "Bs" << endl;
+			cout << "Recibio una penalizacion de: " << penalizacion << "Bs" << endl;
+			cout << "Recibio un bono de: " << bono << "Bs" << endl;
+			cout << "Su salario neto final es: " << neto << "Bs" << endl;
+			break;
+		case 0: 
+			cout << "Ha salido del menu.\n";
+			break;
+		default: 
+			cout << "Ha ingresado una opcion invalida.\n";
+			break;
+		}
+		system("pause");
+		system("cls");
+	} while (opcion != 0);
+	return 0;
+}
+
+void introducir(string& nombre, int& horas, int& pago, int& tarde, int& porcentaje)
+{
+	cout << "Introduce el nombre del empleado: ";
+	cin >> nombre;
+
+	do {
+		cout << "Introduce la cantidad de horas trabajadas en el mes (mayor a 0): ";
+		cin >> horas;
+	} while (horas <= 0);
+	do {
+		cout << "Introduce el pago por hora (mayor a 0): ";
+		cin >> pago;
+	} while (pago <= 0);
+	do {
+		cout << "Introduce el numero de dias que llego tade durante el mes (mayor o igual a 0): ";
+		cin >> tarde;
+	} while (tarde < 0);
+	do {
+		cout << "Introduce el porcentaje de bonificacion aplicable (mayor o igual a 0, en %): ";
+		cin >> porcentaje;
+	} while (porcentaje < 0);
+}
+
+int salariobruto(int horas, int pago)
+{
+	return horas * pago;
+}
+
+float penalizacionaplicada(int tarde, int bruto)
+{
+	float penalizacion = 0;
+	if (tarde > 3)
+		penalizacion = bruto * 0.05;
+	return penalizacion;
+}
+
+float bonos(int porcentaje, int bruto)
+{
+	float bono = 0;
+	bono = bruto * porcentaje / 100;
+	return bono;
+}
+
+float salarioneto(int bruto, float bono, float penalizacion)
+{
+	return bruto + bono - penalizacion;
+}
+
+void cargar(int vector[], int tamanio)
+{
+	for (int i = 0; i < tamanio; i++)
+	{
+		cout << "Vector [" << i << "] = ";
+		cin >> vector[i];
+	}
+}
+
+void mostrar(int vector[], int tamanio)
+{
+	for (int i = 0; i < tamanio; i++)
+	{
+		cout << "Vector [" << i << "] = " << vector[i] << endl;
+	}
+}
